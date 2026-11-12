@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Página educativa sobre Leonardo da Vinci: biografía, obras, logros y legado.">
+  <title>Leonardo da Vinci | Biografía y logros</title>
+  <style>
+    :root {
+      --ink: #25251f;
+      --muted: #66665d;
+      --paper: #f5f1e8;
+      --card: #fffdf8;
+      --accent: #9a6b35;
+      --accent-dark: #67451f;
+      --line: #e5dccd;
+      --shadow: 0 12px 35px rgba(45, 35, 20, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+    a { color: var(--accent-dark); }
+    .topbar {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,253,248,.95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    .nav {
+      max-width: 1100px; margin: auto; padding: 12px 22px;
+      display: flex; align-items: center; justify-content: space-between; gap: 18px;
+    }
+    .brand { font-weight: bold; letter-spacing: .04em; white-space: nowrap; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 16px; }
+    .nav-links a { text-decoration: none; font: 600 .9rem Arial, sans-serif; }
+    .hero {
+      min-height: 440px; display: grid; place-items: center; text-align: center;
+      padding: 80px 22px; color: #fffaf0;
+      background:
+        linear-gradient(rgba(24,22,17,.68), rgba(24,22,17,.72)),
+        radial-gradient(circle at 50% 35%, #9d7949, #302a20 70%);
+    }
+    .hero-inner { max-width: 800px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .22em; font: 700 .75rem Arial, sans-serif; color: #e5c99e; }
+    h1 { font-size: clamp(2.7rem, 7vw, 5.3rem); line-height: 1.05; margin: 12px 0; }
+    .hero p { font-size: 1.2rem; max-width: 650px; margin: 18px auto 0; color: #f3eadb; }
+    .button {
+      display: inline-block; margin-top: 28px; padding: 11px 20px;
+      border: 1px solid #d9bd91; border-radius: 999px;
+      color: #fffaf0; text-decoration: none; font: 600 .9rem Arial, sans-serif;
+    }
+    main { max-width: 1050px; margin: auto; padding: 25px 22px 70px; }
+    section { padding: 55px 0 20px; scroll-margin-top: 70px; }
+    .section-kicker { color: var(--accent); text-transform: uppercase; letter-spacing: .15em; font: 700 .72rem Arial, sans-serif; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin: 8px 0 22px; }
+    h3 { margin: 0 0 8px; font-size: 1.35rem; }
+    p { margin: 0 0 15px; }
+    .intro { font-size: 1.16rem; max-width: 800px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    .card {
+      padding: 23px; background: var(--card); border: 1px solid var(--line);
+      border-radius: 16px; box-shadow: var(--shadow);
+    }
+    .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+    ul { padding-left: 21px; margin: 8px 0 0; }
+    li { margin: 5px 0; }
+    .timeline { border-left: 2px solid #c8a879; margin: 25px 0 0 8px; padding-left: 25px; }
+    .event { position: relative; margin: 0 0 24px; }
+    .event::before {
+      content: ""; position: absolute; left: -32px; top: 9px;
+      width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
+      border: 3px solid var(--paper);
+    }
+    .year { color: var(--accent-dark); font: 700 .9rem Arial, sans-serif; }
+    .gallery { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    figure { margin: 0; overflow: hidden; border-radius: 16px; background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    figure img { display: block; width: 100%; height: 310px; object-fit: cover; background: #e5dccd; }
+    figcaption { padding: 12px 16px; font-size: .95rem; }
+    .note { color: var(--muted); font-size: .9rem; }
+    table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+    th, td { padding: 14px 17px; text-align: left; border-bottom: 1px solid var(--line); }
+    th { background: #e9dfcf; font: 700 .9rem Arial, sans-serif; }
+    tr:last-child td { border-bottom: 0; }
+    .references a { display: inline-block; margin: 5px 14px 5px 0; }
+    footer { padding: 28px 20px; text-align: center; background: #29271f; color: #e9dfcf; font: .9rem Arial, sans-serif; }
+    @media (max-width: 680px) {
+      .nav { align-items: flex-start; flex-direction: column; }
+      .nav-links { gap: 10px 14px; }
+      .grid, .gallery { grid-template-columns: 1fr; }
+      figure img { height: 260px; }
+      section { padding-top: 38px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav" aria-label="Navegación principal">
+      <div class="brand">LEONARDO DA VINCI</div>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#biografia">Biografía</a>
+        <a href="#logros">Logros</a>
+        <a href="#galeria">Galería</a>
+        <a href="#cronologia">Cronología</a>
+        <a href="#referencias">Referencias</a>
+      </div>
+    </nav>
+  </header>
+
+  <header class="hero" id="inicio">
+    <div class="hero-inner">
+      <div class="eyebrow">1452 — 1519 · Renacimiento italiano</div>
+      <h1>Leonardo da Vinci</h1>
+      <p>Artista, inventor, ingeniero y observador incansable. Una de las figuras más representativas del Renacimiento.</p>
+      <a class="button" href="#biografia">Descubrir su historia</a>
+    </div>
+  </header>
+
+  <main>
+    <section aria-labelledby="presentacion">
+      <div class="section-kicker">El hombre universal</div>
+      <h2 id="presentacion">Arte y ciencia en una misma mente</h2>
+      <p class="intro">Leonardo da Vinci nació en Italia en 1452. Fue un artista y también inventó máquinas y estudió el cuerpo humano. Es uno de los personajes más importantes del Renacimiento.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Artista</h3>
+          <p>Pintó obras fundamentales de la historia del arte, como la Mona Lisa y La Última Cena.</p>
+        </article>
+        <article class="card">
+          <h3>Investigador e inventor</h3>
+          <p>Estudió anatomía, naturaleza, movimiento, luz y diseñó máquinas y mecanismos.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="biografia">
+      <div class="section-kicker">Su trayectoria</div>
+      <h2>Biografía</h2>
+      <article class="card">
+        <h3>Infancia y formación</h3>
+        <p>Leonardo da Vinci nació el 15 de abril de 1452 en Vinci, un pequeño pueblo cerca de Florencia. Fue hijo de un notario y una campesina, y creció en un entorno rural que alimentó su curiosidad por la naturaleza.</p>
+        <p>A los 14 años ingresó como aprendiz en el taller de Andrea del Verrocchio, donde aprendió pintura, escultura, dibujo y técnicas mecánicas.</p>
+      </article>
+      <div class="grid" style="margin-top:18px">
+        <article class="card">
+          <h3>Etapa en Florencia</h3>
+          <p>Durante su juventud en Florencia destacó como dibujante y pintor. Su observación de la realidad y su dominio del claroscuro y la perspectiva lo convirtieron en un artista excepcional.</p>
+        </article>
+        <article class="card">
+          <h3>Milán: ciencia, arte e ingeniería</h3>
+          <p>En 1482 se trasladó a Milán, donde trabajó para la corte de Ludovico Sforza. Desarrolló proyectos de ingeniería, arquitectura y diseño de máquinas. Allí realizó obras como La Virgen de las Rocas y La Última Cena, y llenó sus cuadernos de estudios anatómicos, diseños hidráulicos e ideas de máquinas voladoras.</p>
+        </article>
+        <article class="card">
+          <h3>Regreso a Florencia</h3>
+          <p>En 1500 volvió a Florencia. En esta etapa trabajó en La Gioconda, conocida como la Mona Lisa, y continuó sus estudios sobre la anatomía humana.</p>
+        </article>
+        <article class="card">
+          <h3>Últimos años</h3>
+          <p>Tras regresar brevemente a Milán, aceptó la invitación del rey Francisco I de Francia y se instaló en el castillo de Clos-Lucé. Pasó allí sus últimos años como artista e ingeniero real, trabajando en proyectos hidráulicos y organizando sus notas. Murió el 2 de mayo de 1519, a los 67 años.</p>
+        </article>
+      </div>
+      <article class="card" style="margin-top:18px">
+        <h3>Legado</h3>
+        <p>Su legado abarca el arte, la ciencia, la anatomía, la geología y la ingeniería. Sus cuadernos muestran un método basado en la observación rigurosa y la experimentación. Su figura representa el ideal renacentista de unir arte y ciencia.</p>
+      </article>
+    </section>
+
+    <section id="logros">
+      <div class="section-kicker">Obras y descubrimientos</div>
+      <h2>Logros</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Logros en el arte</h3>
+          <ul>
+            <li><strong>La Mona Lisa (La Gioconda):</strong> retrato célebre por su enigmática sonrisa y el uso del <em>sfumato</em>, técnica que suaviza los contornos y crea profundidad.</li>
+            <li><strong>La Última Cena:</strong> pintura mural conocida por su composición, la expresividad de los apóstoles y la perspectiva.</li>
+            <li><strong>El Hombre de Vitruvio:</strong> dibujo que estudia las proporciones del cuerpo humano y relaciona arte y ciencia.</li>
+            <li><strong>Innovación técnica:</strong> perfeccionó recursos como el <em>sfumato</em> y el claroscuro.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Ciencia y anatomía</h3>
+          <ul>
+            <li><strong>Anatomía humana:</strong> realizó estudios y dibujos detallados de órganos, huesos y músculos.</li>
+            <li><strong>Geología e hidrodinámica:</strong> estudió fósiles, el flujo del agua y el movimiento de las olas.</li>
+            <li><strong>Óptica y luz:</strong> investigó el ojo y cómo la luz influye en el color y la percepción.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Ingeniería e invención</h3>
+          <ul>
+            <li>Diseños conceptuales de máquinas voladoras, incluido el tornillo aéreo y el ornitóptero.</li>
+            <li>Un diseño de paracaídas.</li>
+            <li>Proyectos de vehículos blindados y otros ingenios mecánicos.</li>
+            <li>Equipos de buceo, grúas giratorias y sistemas de engranajes.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Ideas que se adelantaron a su tiempo</h3>
+          <p>Sus cuadernos reúnen bocetos, observaciones y propuestas técnicas. Muchos diseños no llegaron a construirse en vida de Leonardo, pero muestran su imaginación y su interés por comprender cómo funcionan las cosas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="section-kicker">Obras e imágenes</div>
+      <h2>Galería</h2>
+      <div class="gallery">
+        <figure>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_self.jpg" alt="Retrato atribuido a Leonardo da Vinci" loading="lazy">
+          <figcaption>Retrato atribuido a Leonardo da Vinci.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" alt="La Mona Lisa, de Leonardo da Vinci" loading="lazy">
+          <figcaption>La Mona Lisa (La Gioconda).</figcaption>
+        </figure>
+      </div>
+      <p class="note" style="margin-top:12px">Las imágenes se cargan desde Wikimedia Commons y requieren conexión a Internet.</p>
+    </section>
+
+    <section id="cronologia">
+      <div class="section-kicker">Fechas principales</div>
+      <h2>Tabla cronológica</h2>
+      <table>
+        <thead><tr><th>Año</th><th>Evento</th></tr></thead>
+        <tbody>
+          <tr><td>1452</td><td>Nace en Vinci, Italia.</td></tr>
+          <tr><td>1482</td><td>Se traslada a Milán y trabaja para Ludovico Sforza.</td></tr>
+          <tr><td>1500</td><td>Regresa a Florencia.</td></tr>
+          <tr><td>1519</td><td>Fallece en Francia.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="referencias" class="references">
+      <div class="section-kicker">Para ampliar información</div>
+      <h2>Referencias</h2>
+      <p>Recursos de consulta sobre la vida y la obra de Leonardo da Vinci:</p>
+      <a href="https://es.wikipedia.org/wiki/Leonardo_da_Vinci" target="_blank" rel="noopener noreferrer">Wikipedia</a>
+      <a href="https://www.britannica.com/biography/Leonardo-da-Vinci" target="_blank" rel="noopener noreferrer">Encyclopaedia Britannica</a>
+      <a href="https://historia.nationalgeographic.com.es/" target="_blank" rel="noopener noreferrer">National Geographic Historia</a>
+    </section>
+  </main>
+
+  <footer>
+    Página educativa sobre Leonardo da Vinci · 1452–1519
+  </footer>
+</body>
+</html>
